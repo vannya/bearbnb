@@ -24,10 +24,6 @@ app.use(passport.session());
 
 require("./routes/auth")(app);
 
-app.use(function (req, res, next) {
-  res.setHeader("Content-Security-Policy", "script-src 'self' https://apis.google.com");
-  return next();
-});
 if (process.env.NODE_ENV === "production") {
   // Hook up express to the build files
   app.use(express.static("client/build"));
