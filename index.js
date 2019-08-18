@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/auth");
 
 require('./models/User');
 require("./services/passport");
