@@ -6,8 +6,9 @@ import styles from './Header.module.css';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Link to="/">
+      <Link to="/" className={styles.logolink}>
         <img src={bear} alt="Bearbnb" className={styles.logo} />
+        <span>Bearbnb</span>
       </Link>
       <nav>
         <ul className={styles.list}>

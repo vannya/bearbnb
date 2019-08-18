@@ -3,10 +3,23 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: #fff;
+}
+
+.logolink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  color: #222;
+  font-weight: 500;
 }
 
 .logo {
-  margin: 8px 16px;
+  margin: 8px 4px 8px 16px;
   cursor: pointer;
 }
 
@@ -26,6 +39,7 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: border 0.1s ease;
+  color: #222;
 }
 
 .listItem:hover {
