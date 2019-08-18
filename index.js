@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-const authRoutes = require("./routes/auth");
 
 require('./models/User');
 require("./services/passport");
@@ -15,12 +14,15 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cookieSession({ maxAge: 30 * 24 * 60 * 60 * 1000, keys: [process.env.COOKIEKEY] }));
+
+app.use(cookieSession({ maxAge: 15 * 24 * 60 * 60 * 1000, keys: [process.env.COOKIE_KEY] }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-authRoutes(app);
+require("./routes/auth")(app);
 
 if (process.env.NODE_ENV === "production") {
   // Hook up express to the build files
